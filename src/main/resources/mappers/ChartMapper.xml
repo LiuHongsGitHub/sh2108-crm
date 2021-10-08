@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace的值就是mapper接口的全限定名称-->
+<mapper namespace="com.bjpowernode.crm.workbench.mapper.ChartMapper">
+    <!--ResultType的类型：
+            map类型
+            基本类型
+            对象类型
+            集合类型（当前所使用的返回类型）
+    -->
+
+
+        <select id="barCharts" resultType="tran">
+            SELECT stage,count(*) possibility from tbl_tran GROUP BY stage ORDER BY stage;
+        </select>
+    <select id="pieEcharts" resultType="pieVo">
+            SELECT stage name,count(*)  value from tbl_tran GROUP BY stage ORDER BY stage;
+        </select>
+</mapper>
